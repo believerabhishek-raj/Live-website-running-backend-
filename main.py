@@ -14,7 +14,7 @@ class AudioRequest(BaseModel):
 
 @app.get("/")
 def home():
-    return {"status": "Audio API is Live and Running 24/7! 🚀"}
+    return {"status": "Backend Server Live Running"}
 
 @app.post("/generate-audio")
 def generate_audio(request: AudioRequest):
