@@ -1,5 +1,5 @@
 fastapi
 uvicorn
-gTTS
+edge-tts
 pydantic
 emoji
