@@ -9,10 +9,11 @@ from pydantic import BaseModel
 
 app = FastAPI(docs_url=None, redoc_url=None)
 
-SECRET_KEY = os.getenv("AUDIO_API_SECRET", "xxxxxxxxxxx123")
+SECRET_KEY = os.getenv("AUDIO_API_SECRET", "xxxxxxxxxxxxx123")
 
 class AudioRequest(BaseModel):
     text: str
+    voice: str = "hi-IN-SwaraNeural"  # Default Voice
 
 @app.get("/")
 def home():
@@ -30,10 +31,8 @@ async def generate_audio(request: AudioRequest, x_api_key: str = Header(None)):
         if not clean_text:
             clean_text = "Hmm"
 
-        # 🔊 100% LOCKED TO FEMALE VOICE (Swara - Best Indian Female Voice)
-        voice_name = "hi-IN-SwaraNeural"
-
-        communicate = edge_tts.Communicate(clean_text, voice_name)
+        # Server 1 se jo voice aayegi wahi play hogi (Language-based)
+        communicate = edge_tts.Communicate(clean_text, request.voice)
         audio_stream = io.BytesIO()
         
         async for chunk in communicate.stream():
