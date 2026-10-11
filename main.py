@@ -8,7 +8,7 @@ from gtts import gTTS
 
 app = FastAPI(docs_url=None, redoc_url=None)
 
-SECRET_KEY = os.getenv("AUDIO_API_SECRET", "kamabhi_secure_123")
+SECRET_KEY = os.getenv("AUDIO_API_SECRET", "xxxxxxxxxxx")
 
 class AudioRequest(BaseModel):
     text: str
