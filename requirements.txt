@@ -1,5 +1,6 @@
 fastapi
 uvicorn
-edge-tts
 pydantic
+edge-tts>=6.1.19
+gTTS
 emoji
